@@ -8,18 +8,22 @@ class UserTest < ActiveSupport::TestCase
  test "is user valid" do 
   assert @user.valid?
  end
+ 
  test "Password must be provided" do 
   @user.password = @user.password_confirmation = ''
   assert @user.invalid? 
  end
+
  test "Password must be of minimum length" do 
   @user.password = @user.password_confirmation = 'a' * 6 
   assert @user.valid?
  end 
+
  test "Email must be provided" do 
   @user.email = "" 
   assert_not @user.valid?
  end 
+
  test "Email must be unique" do 
   @user = User.new(name:'james', email:'who', password:'password',password_confirmation:'password')
   assert @user.save 
