@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
 
   def create 
     user = User.find_by(email: params[:session][:email]) 
-    if user && user.authenticate(params[:session][:password]) 
+    if user &.authenticate(params[:session][:password]) 
       flash.now[:success] = "you have been verified" 
       log_in user 
       redirect_to user
