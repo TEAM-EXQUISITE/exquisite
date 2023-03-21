@@ -17,5 +17,7 @@ class UserSignupTest < ActionDispatch::IntegrationTest
     follow_redirect!
     assert_response :success 
     assert_template 'users/show'
-    end 
-end
+    assert is_logged_in?
+  end 
+
+end 
