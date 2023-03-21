@@ -1,9 +1,9 @@
-<%= form_with(url: new_session_path, scope: :session, local: true) do |f| %>
+<%= form_with(url: sessions_path, scope: :session, local: true) do |f| %>
     <%= f.label :email %> 
     <%= f.email_field :email %> <br> 
 
     <%= f.label :password %> 
-    <%= f.password_field %> <br>  
+    <%= f.password_field :password %> <br>  
 
     <%= f.submit "Log in" %> 
 
