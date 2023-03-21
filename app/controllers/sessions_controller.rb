@@ -6,10 +6,10 @@ class SessionsController < ApplicationController
     user = User.find_by(email: params[:session][:email]) 
     if user && user.authenticate(params[:session][:password]) 
       flash.now[:success] = "you have been verified" 
-      redirect_to user_path
+      redirect_to user
     else 
       flash.now[:danger] = "wrong password/email combination" 
-      render :new
+      render :new, status: :unprocessable_entity
     end 
   end 
 end
