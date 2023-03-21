@@ -1,0 +1,8 @@
+<% if logged_in? %> 
+    <%= link_to "Profile", current_user %> 
+    <%
+=begin%>
+ <%= link_to "Log out", logout_path, method: :delete %> 
+<%
+=end%>
+<% end %>
