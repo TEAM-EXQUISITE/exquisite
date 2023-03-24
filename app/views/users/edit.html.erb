@@ -1,6 +1,5 @@
 <%= form_for( @user , remote: true) do |f| %>
     <%= render "shared/error_messages" %>
     <%= render "shared/form_body" %>
-    <%= f.submit "Crete new user" %>
+    <%= f.submit "Save changes" %>
 <% end %>
-<p> Have an account?, <%= link_to "Sign in", new_session_path %>
