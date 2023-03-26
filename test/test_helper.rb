@@ -14,8 +14,8 @@ class ActiveSupport::TestCase
     !session[:user_id].nil?
   end 
 
-  #creates a session for the user
-  def tests_log_in_as (user)
-    session[:user_id] = user.id
-  end 
+  # Creates a new session by sending params to the sessions controller 
+  def sign_in_as(user, password)
+    post new_session_url, params: { session: { email: user.email, password: password } }
+  end
 end
