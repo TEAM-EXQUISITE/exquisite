@@ -13,4 +13,9 @@ class ActiveSupport::TestCase
   def is_logged_in? 
     !session[:user_id].nil?
   end 
+
+  #creates a session for the user
+  def tests_log_in_as (user)
+    session[:user_id] = user.id
+  end 
 end
