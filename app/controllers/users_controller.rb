@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
   before_action :logged_in_user, only: [:edit, :update] 
+  before_action :correct_user, only: [:edit, :update] 
 
   def index 
   end 
@@ -43,6 +44,13 @@ class UsersController < ApplicationController
     end
   end
   
+  def correct_user 
+    @user = User.find(params[:id]) 
+    unless @user == current_user 
+      flash[:error] = "You are not the correct user to make this change."
+      redirect_to root_url
+    end
+  end
   private 
     def user_params
       params.require(:user).permit(:name,:email,:password,:password_confirmation)

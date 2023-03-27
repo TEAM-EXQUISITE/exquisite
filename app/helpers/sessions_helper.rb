@@ -21,4 +21,8 @@ module SessionsHelper
         session.delete(:user_id)
         @current_user = nil 
     end 
+
+    def log_in_as(user) 
+        session[:user_id] = user.id
+    end 
 end

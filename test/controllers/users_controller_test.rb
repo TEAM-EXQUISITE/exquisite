@@ -4,6 +4,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
 
   def setup 
     @user = users(:michael) 
+    @other_user = users(:james)
   end 
 
   test "should get new" do
@@ -22,4 +23,11 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     assert_not flash.empty? 
     assert_redirected_to new_session_url 
   end
+
+  test "Should redirect edit when logged in as wrong user" do 
+    sign_in_as(@other_user, "password") 
+    get edit_user_url(@user) 
+    assert_not flash.empty? 
+    assert_redirected_to root_url
+  end 
 end
