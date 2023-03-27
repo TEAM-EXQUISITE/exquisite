@@ -9,8 +9,8 @@ class UsersEditTest < ActionDispatch::IntegrationTest
   test "Update with valid credentials if logged in" do 
     sign_in_as(@user, "password")
     get edit_user_url(@user)
-    name = "james"
-    email = "james@example.com"
+    name = "joel"
+    email = "joel@example.com"
     assert_template 'users/edit' 
     patch user_path(@user), params: {
       user: {
