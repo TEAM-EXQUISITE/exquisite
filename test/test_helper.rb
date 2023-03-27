@@ -16,6 +16,6 @@ class ActiveSupport::TestCase
 
   # Creates a new session by sending params to the sessions controller 
   def sign_in_as(user, password)
-    post sessions_url, params: { session: { email: user.email, password: password } }
+    post sessions_url, params: { session: { email: user.email, password: password} }
   end
 end
